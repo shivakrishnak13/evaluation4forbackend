@@ -50,7 +50,7 @@ userRouter.post("/login", async (req, res) => {
 
 
 userRouter.post("/logout", async (req, res) => {
-    const btoken = req.headers.authorization(" ")[1];
+    const btoken = req.headers.authorization.split(" ")[1];
     try {
         const token = new BlacklistModel({btoken});
         token.save();
